@@ -10,6 +10,7 @@ You need `serverless` framework.
 2. Run `yarn install` (or use `npm` if that's more your thing)
 3. Run `serverlesss deploy` (will deploy with stage name `dev`)
    1. Alternatively specify a stage, like `serverless deploy --stage prod`
+   2. You can also specify a region: `serverless deploy --stage prod --region eu-central-1`
 4. **Repeat for all regions you intend to use the custom resources in**
 
 ## Usage
@@ -30,8 +31,8 @@ Example:
 ```yaml
 service: MyCoolService
 custom:
-  # change the 'prod' in 'WafCustomResources-prod' if you deployed to a different stage
-  ServiceToken: !Join [':', ['arn:aws:lambda', !Ref AWS::Region, !Ref AWS::AccountId, 'function:WafCustomResources-prod']]
+  # change the 'prod' in 'WafCustomResources-prod-customResources' if you deployed to a different stage
+  ServiceToken: !Join [':', ['arn:aws:lambda', !Ref AWS::Region, !Ref AWS::AccountId, 'function:WafCustomResources-prod-customResources']]
 
 resources:
   Resources:

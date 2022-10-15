@@ -1,0 +1,19 @@
+service: WafCustomResources
+
+provider:
+  name: aws
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1'}
+  runtime: nodejs14.x
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Resource:
+            - '*'
+          Action:
+            - wafv2:*
+
+functions:
+  customResources:
+    handler: handler.handle

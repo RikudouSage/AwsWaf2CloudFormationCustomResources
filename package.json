@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "aws-sdk": "^2.1233.0",
+    "node-fetch": "2.6.6",
+    "randomstring": "^1.2.2"
+  }
+}
